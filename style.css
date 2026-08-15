@@ -225,7 +225,7 @@ h1, h2, h3 {
 .hero-actions { display: flex; gap: var(--gap-sm); flex-wrap: wrap; }
 
 /* ---------- Brand strip ---------- */
-.brand-strip { margin-top: 2.25rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.brand-strip { margin-top: 2.25rem; }
 
 .brand-strip .kicker {
   margin: 0 0 0.85rem;
