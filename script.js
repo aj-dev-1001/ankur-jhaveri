@@ -7,6 +7,10 @@ navToggle.addEventListener('click', () => {
   navToggle.setAttribute('aria-expanded', String(isOpen));
 });
 
+// Desktop uses the fade-slide fold effect; mobile scrolls normally (see CSS).
+// Match the same 780px breakpoint the stylesheet uses.
+const isMobile = () => window.matchMedia('(max-width: 780px)').matches;
+
 // Fade-slide navigation
 const slidesWrap = document.getElementById('slides');
 const slides = Array.from(slidesWrap.querySelectorAll('.slide'));
@@ -48,9 +52,10 @@ function goTo(index) {
 function next() { goTo(current + 1); }
 function prev() { goTo(current - 1); }
 
-// Wheel navigation
+// Wheel navigation (desktop only)
 let wheelCooldown = false;
 window.addEventListener('wheel', (e) => {
+  if (isMobile()) return;
   if (wheelCooldown) return;
   if (Math.abs(e.deltaY) < 10) return;
   wheelCooldown = true;
@@ -58,20 +63,23 @@ window.addEventListener('wheel', (e) => {
   setTimeout(() => { wheelCooldown = false; }, TRANSITION_MS + 100);
 }, { passive: true });
 
-// Touch navigation
+// Touch swipe navigation (desktop only — mobile uses native scroll)
 let touchStartY = 0;
 slidesWrap.addEventListener('touchstart', (e) => {
+  if (isMobile()) return;
   touchStartY = e.touches[0].clientY;
 }, { passive: true });
 
 slidesWrap.addEventListener('touchend', (e) => {
+  if (isMobile()) return;
   const delta = touchStartY - e.changedTouches[0].clientY;
   if (Math.abs(delta) < 50) return;
   if (delta > 0) next(); else prev();
 }, { passive: true });
 
-// Keyboard navigation
+// Keyboard navigation (desktop only)
 window.addEventListener('keydown', (e) => {
+  if (isMobile()) return;
   if (['ArrowDown', 'PageDown'].includes(e.key)) { e.preventDefault(); next(); }
   else if (['ArrowUp', 'PageUp'].includes(e.key)) { e.preventDefault(); prev(); }
   else if (e.key === 'Home') { e.preventDefault(); goTo(0); }
@@ -81,6 +89,12 @@ window.addEventListener('keydown', (e) => {
 // Nav link clicks
 navLinks.forEach((link) => {
   link.addEventListener('click', (e) => {
+    if (isMobile()) {
+      // Let the browser do a normal anchor scroll to the section.
+      nav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      return;
+    }
     e.preventDefault();
     const targetId = link.getAttribute('href').slice(1);
     const index = slides.findIndex((s) => s.id === targetId);
@@ -90,7 +104,7 @@ navLinks.forEach((link) => {
   });
 });
 
-// Initial slide from hash
+// Initial slide from hash (desktop fold state; harmless on mobile)
 const initialId = window.location.hash.slice(1);
 const initialIndex = slides.findIndex((s) => s.id === initialId);
 current = initialIndex !== -1 ? initialIndex : 0;
