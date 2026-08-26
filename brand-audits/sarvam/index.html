@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sarvam — Brand & Marketing Audit | Ankur Jhaveri</title>
+<meta name="description" content="An unsolicited brand and marketing audit of Sarvam (sarvam.ai) — where the product is ahead, and where the market's perception hasn't caught up.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BNZ2NQSGBS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-BNZ2NQSGBS');
+</script>
+
+<style>
+  /* ---- Page-specific additions (extends style.css tokens) ---- */
+  body.report { background: var(--paper-alt); }
+
+  .report-header {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .report-header .header-inner {
+    display: flex; align-items: center; justify-content: space-between; height: 58px;
+  }
+  .back-link { font-size: 0.86rem; color: var(--muted); }
+  .back-link:hover { color: var(--accent); }
+  .report-tag {
+    font-size: 0.76rem; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--faint);
+  }
+
+  .report main { max-width: var(--max-width); margin: 0 auto; padding: 2.25rem var(--gap-md) 0; }
+
+  /* Each section reads as its own card/slide, not a continuous scroll */
+  .report-section {
+    background: #fff;
+    border-radius: 22px;
+    padding: 2.75rem 3rem;
+    margin-bottom: 1.75rem;
+    border: 1px solid var(--line);
+    box-shadow: 0 1px 2px rgba(23, 23, 26, 0.03), 0 14px 32px rgba(23, 23, 26, 0.05);
+  }
+  @media (max-width: 780px) { .report-section { padding: 2rem 1.5rem; } }
+
+  /* Section kicker — reads as context before the headline, not a footnote */
+  .num-section {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--accent-soft); color: var(--accent);
+    font-size: 0.88rem; font-weight: 700; letter-spacing: 0.03em;
+    text-transform: uppercase; padding: 0.45rem 1rem; border-radius: 999px;
+    margin: 0 0 1.15rem;
+  }
+
+  /* Masthead — sits on the plain page background, reads as an article opening
+     before the deck-style content begins. Not a card. */
+  .report-masthead { padding: 1.25rem 0 2.25rem; }
+  .report-eyebrow {
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--accent); margin: 0 0 0.9rem;
+  }
+  .report-title {
+    font-family: var(--font-head); font-weight: 500; color: var(--ink);
+    font-size: clamp(2rem, 4.5vw, 2.9rem); line-height: 1.1; margin: 0 0 1rem;
+  }
+  .report-context {
+    font-size: 1.02rem; color: var(--muted); margin: 0 0 1.1rem;
+  }
+  .report-byline {
+    font-size: 0.86rem; color: var(--faint); margin: 0;
+  }
+
+  /* First "slide" — the at-a-glance summary, dark, sets the deck's frame */
+  .report-hero {
+    background: var(--ink); color: #fff;
+    border-radius: 22px; padding: 3.25rem 3rem; margin-bottom: 1.75rem;
+  }
+  @media (max-width: 780px) { .report-hero { padding: 2.25rem 1.5rem; } }
+  .hero-kicker {
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: #c7c2ff; margin: 0 0 1.4rem;
+  }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.75rem; }
+  .info-card {
+    padding: 1.4rem 1.5rem; border-radius: 16px;
+    background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.14);
+    color: #fff;
+  }
+  .info-card.dark .info-card-label { color: #f2b892; }
+  .info-card-label {
+    font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; color: #b8c4ff; margin: 0 0 0.6rem;
+  }
+  .info-card ul { margin: 0; padding-left: 1.1rem; font-size: 0.92rem; }
+  .info-card li { margin-bottom: 0.4rem; }
+  .info-card li:last-child { margin-bottom: 0; }
+
+  .fix-line {
+    font-size: 1.05rem; padding: 1rem 1.4rem; border-radius: 12px;
+    background: var(--accent-soft); color: var(--ink);
+  }
+  .fix-line strong { color: var(--accent); }
+
+  .quote-card {
+    padding: 1.2rem 1.4rem; border-radius: 14px; border: 1px solid var(--line);
+    background: var(--paper-alt); margin-bottom: 1.4rem;
+  }
+  .quote-card.proposed { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .quote-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--faint); margin: 0 0 0.4rem; }
+  .quote-card.proposed .quote-label { color: #c7c2ff; }
+  .quote-text { font-style: italic; font-size: 1rem; margin: 0; }
+
+  .problem-fix-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem; margin-top: 1.5rem; }
+  @media (max-width: 780px) { .problem-fix-grid, .two-col { grid-template-columns: 1fr; } }
+
+  .col-label {
+    font-size: 1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;
+    margin: 1.85rem 0 1rem; display: flex; align-items: center; gap: 0.6rem;
+  }
+  .col-label:first-child { margin-top: 0; }
+  .col-label .dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+  .col-label.problem { color: #a5460f; }
+  .col-label.problem .dot { background: #a5460f; }
+  .col-label.fix { color: var(--accent); }
+  .col-label.fix .dot { background: var(--accent); }
+
+  .plain-list { margin: 0; padding-left: 1.1rem; font-size: 0.94rem; color: var(--ink); }
+  .plain-list li { margin-bottom: 0.55rem; }
+
+  .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0; }
+  .stat-tile {
+    padding: 1.1rem; border-radius: 14px; border: 1px solid var(--line); background: #fff;
+  }
+  .stat-tile-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin: 0 0 0.3rem; }
+  .stat-tile-val { font-family: var(--font-head); font-size: 1.9rem; font-weight: 600; color: #a5460f; margin: 0; line-height: 1; }
+  .stat-tile-sub { font-size: 0.78rem; color: var(--faint); margin-top: 0.2rem; }
+  .stat-tile.big .stat-tile-val { color: var(--accent); font-size: 2.6rem; }
+  @media (max-width: 780px) { .stat-grid { grid-template-columns: 1fr 1fr; } }
+
+  .logo-row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.6rem; margin: 1.5rem 0; }
+  .logo-tile {
+    background: var(--ink); color: #fff; border-radius: 12px; padding: 0.9rem 0.6rem;
+    text-align: center;
+  }
+  .logo-tile .name { font-family: var(--font-head); font-weight: 600; font-size: 0.82rem; letter-spacing: 0.01em; }
+  .logo-tile .role { font-size: 0.68rem; color: #c7c2ff; margin-top: 0.25rem; }
+  @media (max-width: 780px) { .logo-row { grid-template-columns: repeat(2, 1fr); } }
+
+  .impact-strip {
+    margin-top: 1.75rem; padding: 1rem 1.4rem; border-radius: 12px;
+    background: var(--accent-soft); font-size: 0.94rem;
+  }
+  .impact-label { font-weight: 700; color: var(--accent); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; margin-right: 0.5rem; }
+
+  .callout-line { font-size: 0.98rem; font-weight: 700; color: #a5460f; margin: 1.5rem 0 0; }
+
+  .plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem; }
+  .plan-card { padding: 1.4rem; border-radius: 16px; border: 1px solid var(--line); background: var(--paper-alt); }
+  .plan-pill {
+    display: inline-block; background: var(--ink); color: #fff; font-size: 0.68rem;
+    font-weight: 700; letter-spacing: 0.05em; padding: 0.3rem 0.7rem; border-radius: 999px; margin-bottom: 0.8rem;
+  }
+  .plan-card h3 { font-size: 1.1rem; margin: 0 0 0.2rem; }
+  .plan-card .plan-note { font-size: 0.8rem; color: var(--muted); font-style: italic; margin: 0 0 0.9rem; }
+  .plan-card ul { margin: 0; padding-left: 1.05rem; font-size: 0.85rem; }
+  .plan-card li { margin-bottom: 0.5rem; }
+  @media (max-width: 780px) { .plan-grid { grid-template-columns: 1fr; } }
+
+  .closing-strip {
+    margin-top: 1.5rem; padding: 1.1rem 1.5rem; border-radius: 12px;
+    background: var(--ink); color: #fff; font-size: 0.98rem;
+  }
+  .closing-strip strong { color: #fff; }
+
+  .report-footer {
+    padding: 2.5rem 0 3rem; text-align: center; font-size: 0.8rem; color: var(--faint);
+  }
+</style>
+</head>
+<body class="report">
+
+<header class="report-header">
+  <div class="header-inner container">
+    <a href="../../index.html" class="back-link">&larr; ankurjhaveri.com</a>
+    <span class="report-tag">Brand &amp; Marketing Audit</span>
+  </div>
+</header>
+
+<main>
+
+  <!-- MASTHEAD -->
+  <section class="report-masthead">
+    <p class="report-eyebrow">Brand &amp; Marketing Audit &middot; Sarvam (sarvam.ai)</p>
+    <h1 class="report-title">Sarvam beats Gemini.<br>But enterprises still don't know it.</h1>
+    <p class="report-context">A short audit of Sarvam's marketing footprint — where the product is ahead, and where the market's perception hasn't caught up.</p>
+    <p class="report-byline">By Ankur Jhaveri</p>
+  </section>
+
+  <!-- AT A GLANCE -->
+  <section class="report-hero">
+    <p class="hero-kicker">At a glance</p>
+
+    <div class="two-col">
+      <div class="info-card">
+        <p class="info-card-label">What's working</p>
+        <ul>
+          <li>Models beat Gemini 3 Pro, GPT-4o on Indic benchmarks</li>
+          <li>14 named enterprise deployments &mdash; SBI Life, Tata Capital, IDFC First</li>
+        </ul>
+      </div>
+      <div class="info-card dark">
+        <p class="info-card-label">What's not</p>
+        <ul>
+          <li>Founder LinkedIn Thought Leadership score: 31%. Co-founder: 0 posts, 30 days</li>
+          <li>0 comparison pages, 0 G2 reviews, 0 gated reports</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="fix-line"><strong>Fix:</strong> distribution and proof, not more models.</p>
+  </section>
+
+  <!-- POSITIONING & WEBSITE COPY -->
+  <section class="report-section">
+    <p class="num-section">01 &middot; Positioning &amp; Website Copy</p>
+    <h2 class="headline">The homepage sells sovereign AI, but it's not what enterprises will pay for</h2>
+
+    <div class="two-col" style="margin-top: 1.5rem;">
+      <div class="quote-card">
+        <p class="quote-label">Current H1 on landing page</p>
+        <p class="quote-text">"AI for all from India"</p>
+      </div>
+      <div class="quote-card proposed">
+        <p class="quote-label">Proposed H1</p>
+        <p class="quote-text">"Enterprise-grade Voice, document and workflow AI solutions. Built for 22 Indian languages."</p>
+      </div>
+    </div>
+
+    <div class="problem-fix-grid">
+      <div>
+        <p class="col-label problem"><span class="dot"></span>Problem</p>
+        <ul class="plain-list">
+          <li>Language focuses on "product", not "value prop for buyer"</li>
+          <li>Trust badges (SOC 2, ISO 27001) sit below the fold</li>
+          <li>56 of 78 homepage images have no alt text (impacts SEO)</li>
+        </ul>
+      </div>
+      <div>
+        <p class="col-label fix"><span class="dot"></span>Fix</p>
+        <ul class="plain-list">
+          <li>Move certifications into the hero band</li>
+          <li>Add a logo strip: SBI Life, Tata Capital, IDFC First, HealthPlix</li>
+          <li>Fix the 56 missing alt tags</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="impact-strip">
+      <span class="impact-label">Impact</span>Immediate brand clarity. An enterprise BFSI buyer knows exactly what it will get with Sarvam.
+    </div>
+  </section>
+
+  <!-- THE BENCHMARK GAP -->
+  <section class="report-section">
+    <p class="num-section">02 &middot; The Benchmark Gap</p>
+    <h2 class="headline">The claim is everywhere. Independent proof is nowhere.</h2>
+
+    <p class="col-label problem"><span class="dot"></span>Problem</p>
+    <div class="logo-row" style="grid-template-columns: repeat(3, 1fr);">
+      <div class="logo-tile"><div class="name">BEATS GEMINI 3 PRO</div><div class="role">Business Standard, Business Today</div></div>
+      <div class="logo-tile"><div class="name">BEATS DEEPSEEK OCR</div><div class="role">Covered by Tom's Guide (int'l press)</div></div>
+      <div class="logo-tile"><div class="name">20,000+ VOTES</div><div class="role">Sarvam's own study, not 3rd-party</div></div>
+    </div>
+
+    <p class="callout-line">Every article cites Sarvam's own release. None link to a neutral leaderboard.</p>
+
+    <p class="col-label fix"><span class="dot"></span>Fix</p>
+    <ul class="plain-list">
+      <li><strong>List results on a neutral leaderboard:</strong> Hugging Face Open ASR or Artificial Analysis so the claim isn't self-graded.</li>
+      <li><strong>Publish full methodology + raw eval logs</strong> alongside every benchmark claim. This can then be picked up by other publications.</li>
+      <li><strong>Link comparison pages to the neutral listing</strong> once live (not just to Sarvam's own blog).</li>
+    </ul>
+
+    <div class="impact-strip">
+      <span class="impact-label">Impact</span>Category leadership, independently provable. Higher chances of it getting picked organically by publications and media outlets.
+    </div>
+  </section>
+
+  <!-- FOUNDER VOICE -->
+  <section class="report-section">
+    <p class="num-section">03 &middot; Founder Voice</p>
+    <h2 class="headline">Thought leadership has a gap</h2>
+
+    <div class="stat-grid" style="margin-top: 1.5rem;">
+      <div class="stat-tile big"><p class="stat-tile-label">Posts, recent window</p><p class="stat-tile-val">16</p><p class="stat-tile-sub">Pratyush Kumar on LinkedIn</p></div>
+      <div class="stat-tile big"><p class="stat-tile-label">Thought-leadership score</p><p class="stat-tile-val">31%</p><p class="stat-tile-sub">Only 4 of 16 posts are true POV</p></div>
+      <div class="stat-tile big"><p class="stat-tile-label">Posts, 30 days</p><p class="stat-tile-val">0</p><p class="stat-tile-sub">Co-founder Vivek Raghavan</p></div>
+    </div>
+
+    <p class="col-label fix"><span class="dot"></span>Fix</p>
+    <ul class="plain-list">
+      <li><strong>Ghostwriter-supported cadence:</strong> 2 posts/week, split POV / educational / update.</li>
+      <li><strong>Get Vivek to start posting:</strong> Even a monthly cadence will close half the founder-voice gap.</li>
+      <li><strong>Turn existing interviews into LinkedIn-native posts</strong> instead of new writing from scratch.</li>
+    </ul>
+
+    <div class="impact-strip">
+      <span class="impact-label">Impact</span>Founder credibility &amp; brand building. Showcases both Pratyush and Vivek as thought leaders in their space.
+    </div>
+  </section>
+
+  <!-- DISCOVERABILITY -->
+  <section class="report-section">
+    <p class="num-section">04 &middot; Discoverability</p>
+    <h2 class="headline">Discoverability is low: A CIO can verify a $10K vendor faster than they can verify Sarvam.</h2>
+
+    <p class="col-label problem"><span class="dot"></span>Problem</p>
+    <div class="stat-grid">
+      <div class="stat-tile"><p class="stat-tile-label">G2</p><p class="stat-tile-val">0</p><p class="stat-tile-sub">reviews</p></div>
+      <div class="stat-tile"><p class="stat-tile-label">Capterra</p><p class="stat-tile-val">&mdash;</p><p class="stat-tile-sub">not listed</p></div>
+      <div class="stat-tile"><p class="stat-tile-label">Comparison pages</p><p class="stat-tile-val">0</p><p class="stat-tile-sub">none built yet</p></div>
+      <div class="stat-tile"><p class="stat-tile-label">Gated reports</p><p class="stat-tile-val">0</p><p class="stat-tile-sub">no MOFU asset</p></div>
+      <div class="stat-tile"><p class="stat-tile-label">Op-eds</p><p class="stat-tile-val">0</p><p class="stat-tile-sub">none published</p></div>
+    </div>
+
+    <p class="callout-line">A buyer evaluating Deepgram finds 473 reviews on G2. For Sarvam, they find zero.</p>
+
+    <p class="col-label fix"><span class="dot"></span>Fix</p>
+    <ul class="plain-list">
+      <li><strong>G2 review push:</strong> 15&ndash;20 reviews in 90 days from the 14 named customers.</li>
+      <li><strong>One gated benchmark report per quarter:</strong> starting with the Indic ASR results.</li>
+      <li><strong>Ghostwrite 2 founder op-eds:</strong> ET Prime or Mint (interviews already exist).</li>
+    </ul>
+
+    <div class="impact-strip">
+      <span class="impact-label">Impact</span>Enterprise trust gets built immediately.
+    </div>
+  </section>
+
+  <!-- 30/60/90 -->
+  <section class="report-section">
+    <p class="num-section">05 &middot; What I'd Do</p>
+    <h2 class="headline">30 / 60 / 90 days.</h2>
+
+    <div class="plan-grid">
+      <div class="plan-card">
+        <span class="plan-pill">Days 0–30</span>
+        <h3>Surface the proof</h3>
+        <p class="plan-note">No new models</p>
+        <ul>
+          <li>Rewrite hero H1 + get trust badges up</li>
+          <li>Fix 56 missing alt tags on website</li>
+          <li>Logo strip: SBI Life, Tata Capital, IDFC First</li>
+        </ul>
+      </div>
+      <div class="plan-card">
+        <span class="plan-pill">Days 30–60</span>
+        <h3>Turn on distribution</h3>
+        <p class="plan-note">Proof to audiences</p>
+        <ul>
+          <li>Founder cadence live, 2 posts/week</li>
+          <li>3 comparison pages shipped</li>
+          <li>G2 review program launched</li>
+        </ul>
+      </div>
+      <div class="plan-card">
+        <span class="plan-pill">Days 60–90</span>
+        <h3>Compound the proof</h3>
+        <p class="plan-note">Momentum builds</p>
+        <ul>
+          <li>15+ G2 reviews landed</li>
+          <li>1 gated benchmark report live</li>
+          <li>Enterprise video series live</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="closing-strip"><strong>The models are great.</strong> The market just doesn't know it yet — that's what I would fix.</p>
+  </section>
+
+  <div class="report-footer">
+    <a href="../../index.html" class="back-link">&larr; ankurjhaveri.com</a>
+    &nbsp;&middot;&nbsp; Ankur Jhaveri
+  </div>
+
+</main>
+
+</body>
+</html>
