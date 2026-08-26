@@ -115,10 +115,11 @@
   @media (max-width: 780px) { .problem-fix-grid, .two-col { grid-template-columns: 1fr; } }
 
   .col-label {
-    font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
-    margin: 0 0 0.9rem; display: flex; align-items: center; gap: 0.5rem;
+    font-size: 1rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;
+    margin: 1.85rem 0 1rem; display: flex; align-items: center; gap: 0.6rem;
   }
-  .col-label .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+  .col-label:first-child { margin-top: 0; }
+  .col-label .dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
   .col-label.problem { color: #c05621; }
   .col-label.problem .dot { background: #c05621; }
   .col-label.fix { color: var(--accent); }
@@ -259,7 +260,7 @@
     <p class="num-section">02 &middot; Discoverability</p>
     <h2 class="headline">When a buyer researches Bureau, they find nothing.</h2>
 
-    <p class="col-label problem" style="margin-top: 1.5rem;"><span class="dot"></span>Problem</p>
+    <p class="col-label problem"><span class="dot"></span>Problem</p>
     <div class="stat-grid">
       <div class="stat-tile"><p class="stat-tile-label">G2</p><p class="stat-tile-val">0</p><p class="stat-tile-sub">reviews</p></div>
       <div class="stat-tile"><p class="stat-tile-label">Capterra</p><p class="stat-tile-val">&mdash;</p><p class="stat-tile-sub">no profile</p></div>
@@ -309,7 +310,7 @@
     <p class="num-section">04 &middot; Thought Leadership</p>
     <h2 class="headline">The strongest proof lives on unlinked pages</h2>
 
-    <p class="col-label problem" style="margin-top: 1.5rem;"><span class="dot"></span>Bureau Fraud Forum — past speakers, hidden under the /events page on website</p>
+    <p class="col-label problem"><span class="dot"></span>Bureau Fraud Forum — past speakers, hidden under the /events page on website</p>
     <div class="logo-row">
       <div class="logo-tile"><div class="name">HDFC BANK</div><div class="role">CDO</div></div>
       <div class="logo-tile"><div class="name">KOTAK</div><div class="role">SVP, Personal Loans</div></div>
