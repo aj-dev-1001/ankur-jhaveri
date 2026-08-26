@@ -63,22 +63,33 @@
     margin: 0 0 1.15rem;
   }
 
-  /* Hero reads as the title slide — dark, sets the whole report's frame */
+  /* Masthead — sits on the plain page background, reads as an article opening
+     before the deck-style content begins. Not a card. */
+  .report-masthead { padding: 1.25rem 0 2.25rem; }
+  .report-eyebrow {
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--accent); margin: 0 0 0.9rem;
+  }
+  .report-title {
+    font-family: var(--font-head); font-weight: 500; color: var(--ink);
+    font-size: clamp(2rem, 4.5vw, 2.9rem); line-height: 1.1; margin: 0 0 1rem;
+  }
+  .report-context {
+    font-size: 1.02rem; color: var(--muted); max-width: 42rem; margin: 0 0 1.1rem;
+  }
+  .report-byline {
+    font-size: 0.86rem; color: var(--faint); margin: 0;
+  }
+
+  /* First "slide" — the at-a-glance summary, dark, sets the deck's frame */
   .report-hero {
     background: var(--ink); color: #fff;
     border-radius: 22px; padding: 3.25rem 3rem; margin-bottom: 1.75rem;
   }
   @media (max-width: 780px) { .report-hero { padding: 2.25rem 1.5rem; } }
-  .report-eyebrow {
+  .hero-kicker {
     font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em;
-    text-transform: uppercase; color: #c7c2ff; margin: 0 0 0.9rem;
-  }
-  .report-title {
-    font-family: var(--font-head); font-weight: 500; color: #fff;
-    font-size: clamp(2rem, 4.5vw, 2.9rem); line-height: 1.1; margin: 0 0 1rem;
-  }
-  .report-context {
-    font-size: 1.02rem; color: #c3c7d1; max-width: 42rem; margin: 0 0 2rem;
+    text-transform: uppercase; color: #c7c2ff; margin: 0 0 1.4rem;
   }
 
   .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.75rem; }
@@ -187,11 +198,17 @@
 
 <main>
 
-  <!-- INTRO -->
-  <section class="report-hero">
-    <p class="report-eyebrow">Bureau &middot; Marketing Audit</p>
+  <!-- MASTHEAD -->
+  <section class="report-masthead">
+    <p class="report-eyebrow">Brand &amp; Marketing Audit &middot; Bureau (bureau.id)</p>
     <h1 class="report-title">Bureau does the work.<br>Buyers can't find it.</h1>
     <p class="report-context">A short audit of Bureau's marketing footprint — where the brand is under-delivering against its assets, and what needs work.</p>
+    <p class="report-byline">By Ankur Jhaveri</p>
+  </section>
+
+  <!-- AT A GLANCE -->
+  <section class="report-hero">
+    <p class="hero-kicker">At a glance</p>
 
     <div class="two-col">
       <div class="info-card">
